@@ -1,0 +1,13 @@
+services:
+  fastapi-service:
+    build: .
+    container_name: itmo-agent-service
+    ports:
+      - "10101:10101"
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - TZ=UTC
+    volumes:
+      - ./logs:/app/logs
